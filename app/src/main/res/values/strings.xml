@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Тооны машин</string>
+    <string name="add">Нэмэх</string>
+    <string name="sub">Хасах</string>
+    <string name="mul">Үржих</string>
+    <string name="div">Хуваах</string>
+    <string name="res">Үр дүн</string>
+    <string name="valA">Утга А:</string>
+    <string name="valB">Утга Б:</string>
+</resources>
