@@ -7,4 +7,5 @@
     <string name="res">Үр дүн</string>
     <string name="valA">Утга А:</string>
     <string name="valB">Утга Б:</string>
+    <string name="empField">Хоосон талбар байна!</string>
 </resources>

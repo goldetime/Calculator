@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    // temp variables
     Button button;
     EditText A;
     EditText B;
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lab_two_layout);
 
+        // match menu button
         button = (Button) findViewById(R.id.btMenu);
+        // context menu д үүсгэсэн товчоо бүртгэх
         registerForContextMenu(button);
     }
 
@@ -56,39 +59,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add(View view) {
-        A = (EditText) findViewById(R.id.etValueA);
-        B = (EditText) findViewById(R.id.etValueB);
-        tmp = Float.parseFloat(A.getText().toString()) + Float.parseFloat(B.getText().toString());
-        EditText t = (EditText)findViewById(R.id.etResult);
-        t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
-        Log.i("Амжилттай ", A.getText().toString() + " + " + B.getText().toString() + " үйлдэл хийгдлээ!");
-        System.out.println("Амжилттай" + A.getText().toString() + " + " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        try {
+            A = (EditText) findViewById(R.id.etValueA);
+            B = (EditText) findViewById(R.id.etValueB);
+
+            tmp = Float.parseFloat(A.getText().toString()) + Float.parseFloat(B.getText().toString());
+            EditText t = (EditText)findViewById(R.id.etResult);
+
+            t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
+            Log.i("Амжилттай ", A.getText().toString() + " + " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        } catch (NumberFormatException e) {
+            Log.i("App", getString(R.string.empField));
+        }
     }
 
     public void sub(View view) {
-        A = (EditText) findViewById(R.id.etValueA);
-        B = (EditText) findViewById(R.id.etValueB);
-        tmp = Float.parseFloat(A.getText().toString()) - Float.parseFloat(B.getText().toString());
-        EditText t = (EditText)findViewById(R.id.etResult);
-        t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
-        Log.i("Амжилттай ", A.getText().toString() + " - " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        try {
+            A = (EditText) findViewById(R.id.etValueA);
+            B = (EditText) findViewById(R.id.etValueB);
+
+            tmp = Float.parseFloat(A.getText().toString()) - Float.parseFloat(B.getText().toString());
+            EditText t = (EditText)findViewById(R.id.etResult);
+
+            t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
+            Log.i("Амжилттай ", A.getText().toString() + " - " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        } catch (NumberFormatException e) {
+            int app = Log.i("App", getString(R.string.empField));
+        }
     }
 
     public void mul(View view) {
-        A = (EditText) findViewById(R.id.etValueA);
-        B = (EditText) findViewById(R.id.etValueB);
-        tmp = Float.parseFloat(A.getText().toString()) * Float.parseFloat(B.getText().toString());
-        EditText t = (EditText)findViewById(R.id.etResult);
-        t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
-        Log.i("Амжилттай ", A.getText().toString() + " * " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        try {
+            A = (EditText) findViewById(R.id.etValueA);
+            B = (EditText) findViewById(R.id.etValueB);
+
+            tmp = Float.parseFloat(A.getText().toString()) * Float.parseFloat(B.getText().toString());
+            EditText t = (EditText)findViewById(R.id.etResult);
+
+            t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
+            Log.i("Амжилттай ", A.getText().toString() + " * " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        } catch (NumberFormatException e) {
+            Log.i("App", getString(R.string.empField));
+        }
     }
 
+//    declare exception then throw, handle from in called function;
+
     public void div(View view) {
-        A = (EditText) findViewById(R.id.etValueA);
-        B = (EditText) findViewById(R.id.etValueB);
-        tmp = Float.parseFloat(A.getText().toString()) / Float.parseFloat(B.getText().toString());
-        EditText t = (EditText)findViewById(R.id.etResult);
-        t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
-        Log.i("Амжилттай ", A.getText().toString() + " / " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        try {
+            A = (EditText) findViewById(R.id.etValueA);
+            B = (EditText) findViewById(R.id.etValueB);
+
+            EditText t = (EditText)findViewById(R.id.etResult);
+            tmp = Float.parseFloat(A.getText().toString()) / Float.parseFloat(B.getText().toString());
+
+            t.setText(String.valueOf(tmp), TextView.BufferType.EDITABLE);
+            if (!B.getText().toString().equals("0"))
+                Log.i("Амжилттай ", A.getText().toString() + " / " + B.getText().toString() + " үйлдэл хийгдлээ!");
+        } catch (NumberFormatException e) {
+            Log.i("App", getString(R.string.empField));
+        }
     }
 }
