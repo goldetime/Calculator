@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         // match menu button
         button = (Button) findViewById(R.id.btMenu);
-        // context menu д үүсгэсэн товчоо бүртгэх
+        // context menu -д үүсгэсэн товчоо бүртгэх
         registerForContextMenu(button);
     }
 
